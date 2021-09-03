@@ -1,0 +1,18 @@
+<h1>User Authentication</h1>
+<p class="fs-5 col-md-8">Updates the user status in the Realtime Database when they login.  This user record is extended in the messaging feature to store a token used to send notifications to their devices.</p>
+
+<div class="mb-5">
+<div *ngIf="(auth.user$ | async) as user; else loading">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><b>User ID:</b> <small> {{ user.uid }}</small></li>
+    <li class="list-group-item"><b>Display Name:</b> {{ user.displayName }}</li>
+    <li class="list-group-item"><b>Email:</b> {{ user.email }}</li>
+    <li class="list-group-item"><b>Photo URL: </b> <img class="userimg" [src]="user.photoURL"></li>
+  </ul>
+  <button class="mt-2 btn btn-warning btn-sm" (click)="auth.signOut()">Sign Out</button>
+</div>
+
+
+</div>
+
+<ng-template #loading><app-loading></app-loading></ng-template>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-firebase-rtdb-auth-msg": {
+      "hosting": {
+        "angular-firebase-rtdb-auth-msg-presence": [
+          "angular-firebase-rtdb-auth-msg"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "staging": "angular-firebase-rtdb-auth-msg"
+  }
+}

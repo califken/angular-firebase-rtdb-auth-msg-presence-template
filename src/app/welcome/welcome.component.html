@@ -1,0 +1,81 @@
+<h1>Featuring</h1>
+
+<div *ngIf="auth.user$ | async as user; else loading">
+
+    <span class="badge bg-info text-dark">User authentication</span>
+    <span class="badge bg-info text-dark">User record sync on login</span>
+    <span class="badge bg-info text-dark">User presence (online / away status)</span>
+    <span class="badge bg-info text-dark">Realtime database CRUD </span>
+    <span class="badge bg-info text-dark">
+      Realtime UI updates</span>
+      <span class="badge bg-info text-dark">Push notifications</span>
+    <hr> <p>
+    All built to demonstrate the Firebase Authentication, Realtime Database and
+    Messaging features within an Angular application using Angular Fire. All
+    built with the purpose of being easily modified and extended.
+  </p>
+
+  <p>
+    This template's features are illustrated in the links below. Check them
+    out, then follow the guide to get it running with your own Firebase
+    instance.
+  </p>
+
+  <h4>Features</h4>
+  <div class="mb-5">
+    <ul class="list-group">
+      <li><a routerLink="user-authentication">User Authentication</a></li>
+      <li><a routerLink="realtime-database">Realtime Database</a></li>
+      <li>
+        <a routerLink="messaging-push-notifications"
+          >Messaging / Push Notifications</a
+        >
+      </li>
+      <li><a routerLink="presence">Presence</a></li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #loading><app-loading></app-loading></ng-template>
+<hr class="col-3 col-md-2 mb-5" />
+
+<div class="row g-5">
+  <div class="col-md-6">
+    <h2>Starter project</h2>
+    <p>
+      Visit the Github repo, fork the project and clone it to your local
+      development environent to get started.
+    </p>
+    <ul class="list-group">
+      <li>
+        <a href="#" rel="noopener" target="_blank">Template Github Repo</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-6">
+    <h2>Guides</h2>
+    <p>
+      Read more detailed instructions and documentation on using or contributing
+      to Bootstrap.
+    </p>
+    <ul class="icon-list">
+      <li>
+        <a href="/docs/5.1/getting-started/introduction/"
+          >Bootstrap quick start guide</a
+        >
+      </li>
+      <li>
+        <a href="/docs/5.1/getting-started/webpack/">Bootstrap Webpack guide</a>
+      </li>
+      <li>
+        <a href="/docs/5.1/getting-started/parcel/">Bootstrap Parcel guide</a>
+      </li>
+      <li>
+        <a href="/docs/5.1/getting-started/contribute/"
+          >Contributing to Bootstrap</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>

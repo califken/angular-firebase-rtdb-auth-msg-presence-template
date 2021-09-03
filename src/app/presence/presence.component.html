@@ -1,0 +1,48 @@
+<h1>Presence Component & Service</h1>
+<p class="fs-5 col-md-8">Updates the user status in the Realtime Database when they login, logout, switch to another tab or close the browser.</p>
+
+<div class="mb-5">
+
+
+
+<div *ngIf="myPresence$ | async as presence">
+  <b>Your Presence</b><br>
+  <ul class="list-group list-group-flush">
+    <li  class="list-group-item">
+  <span class="me-2 badge" [ngClass]="{
+      'bg-danger': presence.status == 'away',
+      'bg-success': presence.status == 'online',
+      'bg-dark': presence.status == 'offline'
+    }">{{ presence.status }}
+  </span>
+  <img class="userimg"  [ngClass]="{
+    'border-danger': presence.status == 'away',
+    'border-success': presence.status == 'online',
+    'border-dark': presence.status == 'offline'
+  }" [src]="presence.photoURL">
+  {{ presence.displayName }}
+  <small>{{ util.timesince(presence.timestamp) }}</small>
+</li>
+</ul>
+</div>
+<div *ngIf="allOnlineUsers$ | async as onlineUsers">
+  <b>All Users</b>
+<ul class="list-group list-group-flush">
+  <li *ngFor="let onlineUser of onlineUsers" class="list-group-item">
+    <span class="me-2 badge" [ngClass]="{
+        'bg-danger': onlineUser.status == 'away',
+        'bg-success': onlineUser.status == 'online',
+        'bg-dark': onlineUser.status == 'offline'
+      }">{{ onlineUser.status }}</span>
+      <img class="userimg"  [ngClass]="{
+        'border-danger': onlineUser.status == 'away',
+        'border-success': onlineUser.status == 'online',
+        'border-dark offline': onlineUser.status == 'offline'
+      }" [src]="onlineUser.photoURL">
+    {{ onlineUser.displayName }}
+    <small>{{ util.timesince(onlineUser.timestamp) }}</small>
+  </li>
+</ul>
+</div>
+
+</div>

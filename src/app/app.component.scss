@@ -1,0 +1,21 @@
+.navsubtitle {
+  background:#000;
+  color:#FFF;
+  width:auto;
+  padding:0px 8px;
+  border-radius:4px;
+  margin-top:-28px;
+}
+.heading-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: min-content;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-content: start;
+  align-content: center;
+  justify-items: start;
+  align-items: center;
+  grid-template-areas:
+    ". .";
+}

@@ -1,0 +1,17 @@
+<h1>Messaging / Push Notifications</h1>
+<p class="fs-5 col-md-8">Request permission to receive push notifications on this device, then click allow.</p>
+
+<div class="mb-5">
+
+<div *ngIf="(auth.user$ | async) as user">
+<div  *ngIf="user.messagingToken; else permission">
+  Messaging / Push Notifications are active
+
+  <hr><button class="btn btn-outline-danger">Deactivate notifications</button>
+</div>
+  <ng-template  #permission>
+    <button class="btn btn-info" (click)="requestPermission()">
+  Request Permission
+</button></ng-template>
+</div>
+</div>

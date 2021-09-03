@@ -1,0 +1,44 @@
+
+.userimg {
+  width:30px;
+  border:2px solid #ccc;
+  border-radius:50%;
+  margin-right:12px;
+  height:30px;
+}
+a {
+  text-decoration:none;
+}
+.items-container {
+  display: grid;
+  grid-template-columns: 50px 1fr min-content;
+  grid-template-rows: min-content;
+  grid-auto-rows: min-content;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-content: stretch;
+  align-content: stretch;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    ". . .";
+}
+.card {
+  max-width:320px;
+}
+textarea {
+  width:100%;
+}
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-rows: min-content;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-content: stretch;
+  align-content: stretch;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    ". .";
+}
