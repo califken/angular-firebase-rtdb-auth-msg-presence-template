@@ -27,7 +27,6 @@ export class MessagingPushNotificationsComponent {
   saveToken(token) {
     this.auth.getUserIDAsync().then(uid => {
       this.db.object(`users/${uid}/messagingToken`).set(token);
-      this.db.list(`tokens`).push(token);
     });
 
   }
@@ -42,5 +41,8 @@ export class MessagingPushNotificationsComponent {
       )
       .subscribe();
   }
-
+    listen() {
+      this.afMessaging.messages
+        .subscribe((message) => { console.log(message); });
+    }
 }

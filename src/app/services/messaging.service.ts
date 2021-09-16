@@ -2,12 +2,6 @@ import { Injectable } from '@angular/core';
 
 import firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument,
-  AngularFirestoreCollection,
-  AngularFirestoreCollectionGroup,
-} from '@angular/fire/firestore';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 // import { FirebaseAuthenticationService } from '../../firebase-authentication/firebase-authentication.service';
 import { mergeMapTo } from 'rxjs/operators';
@@ -39,7 +33,6 @@ export class MessagingService {
   cmIcon: string;
   cmResponse;
 
-  private tokensCollection: AngularFirestoreCollection;
   users;
 
   tokensObs;
@@ -51,10 +44,10 @@ export class MessagingService {
   ) {}
 
   pushContentNotifications(content: string) {
-    this.tokens$ = this.db
-      .list('tokens')
-      .valueChanges()
-      .subscribe((tokens) => {
+    console.log('test');
+    this.tokens$ = this.db.list('tokens').valueChanges();
+
+      this.tokens$.subscribe((tokens) => {
         console.log(tokens);
         tokens.forEach((token) => {
           this.pushNotification(token, 'New Content Alert', content);
@@ -64,6 +57,7 @@ export class MessagingService {
   }
 
   pushNotification(token: any, title: string, content: string) {
+    console.log('push notification', token);
     var key =
       'AAAAjFq_3LQ:APA91bHiF5y5fvPHtaTeBlk_ae5MWm1vV04H8ItZVbp9GUWz8S1d0s8nSifdKrhkV-amhbS_Oc0T3KdlWfCDS8fi8xraWCpyzuaRkOJlNR7QyFthQXoBaSZvbNgB5OpFKXvZay6mmQ44';
     var to = token;

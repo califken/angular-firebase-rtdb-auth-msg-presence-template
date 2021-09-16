@@ -1,43 +1,40 @@
-
-<div class="form-container">  <div>
-  <h4>Add Content</h4>
-  <p>Add content to the Realtime Database at '/messages'.  If you have enabled Notifications in the Messaging section, you will receive a push notification when any device that isn't the one enabled for notfications adds content.</p>
-</div>
+<div class="form-container">
+  <div>
+    <h4>Add Content</h4>
+    <p>
+      Add content to the Realtime Database at '/messages'. If you have enabled
+      Notifications in the Messaging section, you will receive a push
+      notification when any device that isn't the one enabled for notfications
+      adds content.
+    </p>
+  </div>
   <div class="card">
     <div class="card-body">
       <textarea (keydown.enter)="addItem(newitem.value)" rows="4" #newitem></textarea><br />
       <button class="btn btn-info" (click)="addItem(newitem.value)">Add</button>
     </div>
   </div>
-
 </div>
 
-<ul class="list-group-flush" *ngIf="(items | async); else loading">
-  <li
-    class="list-group-item items-container"
-    *ngFor="let item of items | async"
-  >
+<ul class="list-group-flush" *ngIf="items | async; else loading"  [@filterAnimation]="(items | async).length">
+  <li class="list-group-item items-container item" *ngFor="let item of items | async">
     <img class="userimg" [src]="item.authorPhoto" />
     <div class="message">{{ item.text }}</div>
 
     <button class="btn btn-light btn-sm" (click)="deleteItem(item.key)">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        class="bi bi-trash"
-        viewBox="0 0 16 16"
-        id="trash"
-        style="width: 16px; height: 16px"
-      >
-        <path
-          d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-        ></path>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" id="trash"
+        style="width: 16px; height: 16px">
+        <path d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5
+          0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0
+          001 0V6z"></path>
+        <path fill-rule="evenodd" d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0
+          01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011
+          1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882
+          4H4.118zM2.5 3V2h11v1h-11z"></path>
       </svg>
     </button>
   </li>
 </ul>
-<ng-template #loading><app-loading></app-loading></ng-template>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

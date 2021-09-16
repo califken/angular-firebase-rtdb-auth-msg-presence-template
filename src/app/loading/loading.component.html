@@ -1,5 +1,12 @@
-<div class="mt-4 text-center">
-  <div class="spinner-border text-info" role="status">
-    <span class="visually-hidden">Loading...</span>
+
+<div *ngIf="(auth.user$ | async); else login">
+  <div class="mt-4 text-center">
+    <div class="spinner-border text-info" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </div>
+
 </div>
+  <ng-template #login>
+    <app-login></app-login>
+      </ng-template>
